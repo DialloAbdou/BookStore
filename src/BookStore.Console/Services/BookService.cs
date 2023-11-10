@@ -5,8 +5,13 @@ namespace BookStore.Console.Services;
 public class BookService
 {
     private List<Book> books = new();
+    private List<Book> ReserveBooks = new();
+    private List<Lecteur> lecteurs = new List<Lecteur>();
+
     public BookService()
     {
+        // Les livres disponible
+
         books.AddRange(new[]
             {
                 new Book()
@@ -31,6 +36,17 @@ public class BookService
                     ISBN = "B00MEAFHXO"
                 }
             });
+
+        ReserveBooks.AddRange(new[]
+        {
+            new Book()
+            {
+               Title = "Harry Potter, I : Harry Potter à l'école des sorciers",
+               Author = "J.K. Rowling",
+               NbPages = 320,
+               ISBN = "2070584623"
+            }
+        });
     }
 
     public void Add(Book book)
@@ -55,4 +71,29 @@ public class BookService
 
     public IEnumerable<Book> List()
         => books.AsEnumerable();
+
+    public Book ReserverLivre(string isbn, string nomLecteur)
+    {
+        Book? book = null;
+        if (!books.Any(b => b.ISBN == isbn))
+        {
+            throw new InvalidOperationException("Ce Livre n'existe pas!");
+        }
+        else if (ReserveBooks.Any(b => b.ISBN == isbn))
+        {
+            throw new InvalidOperationException("Ce Livre a déjà été empreinté!");
+        }
+        else
+        {
+            book = books.FirstOrDefault(b=>b.ISBN == isbn);
+            if (book is not null)
+            {
+                ReserveBooks.Add(book);
+                lecteurs.Add(new Lecteur { Id=1,Nom=nomLecteur });
+            }
+        }
+        return book;
+
+
+    }
 }

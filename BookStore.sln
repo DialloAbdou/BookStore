@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "�
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStoreTest", "BookStoreTest\BookStoreTest.csproj", "{D95818AA-7D8C-47C8-855A-A214A8448DB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,12 +26,17 @@ Global
 		{722ADEDF-D7B0-4546-B706-B23FC1CB334D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{722ADEDF-D7B0-4546-B706-B23FC1CB334D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{722ADEDF-D7B0-4546-B706-B23FC1CB334D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D95818AA-7D8C-47C8-855A-A214A8448DB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D95818AA-7D8C-47C8-855A-A214A8448DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D95818AA-7D8C-47C8-855A-A214A8448DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D95818AA-7D8C-47C8-855A-A214A8448DB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{722ADEDF-D7B0-4546-B706-B23FC1CB334D} = {5ABBD190-68E0-44C2-8559-64FD1848D759}
+		{D95818AA-7D8C-47C8-855A-A214A8448DB8} = {278E4714-C7E3-42D1-B66B-E68D91B11DBB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1E16171-9105-4627-A94F-E17DDF9147EC}
