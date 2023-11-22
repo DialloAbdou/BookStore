@@ -1,16 +1,9 @@
-﻿using BookStore.Console.Models;
-using BookStore.Console.Services;
+﻿using BookStore.Services;
 using FluentAssertions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace BookStoreTest.services
 {
-  
+
     public class BookServiceTest
     {
         private BookService service;
