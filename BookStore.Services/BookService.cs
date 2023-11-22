@@ -1,6 +1,5 @@
-﻿using BookStore.Console.Models;
-
-namespace BookStore.Console.Services;
+﻿using BookStore.Models;
+namespace BookStore.Services;
 
 public class BookService
 {

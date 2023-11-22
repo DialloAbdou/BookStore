@@ -1,4 +1,4 @@
-﻿namespace BookStore.Console.Models;
+﻿namespace BookStore.Models;
 
 public class Book
 {

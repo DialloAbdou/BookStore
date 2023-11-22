@@ -1,5 +1,6 @@
-﻿using BookStore.Console.Models;
-using BookStore.Console.Services;
+﻿
+using BookStore.Models;
+using BookStore.Services;
 
 var service = new BookService();
 
