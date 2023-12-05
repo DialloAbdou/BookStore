@@ -131,7 +131,7 @@ void PrintBook(Book b)
     Console.WriteLine("Livre : " + b.Title);
     Console.WriteLine("\tAuteur: " + b.Author);
     Console.WriteLine("\tPages : " + b.NbPages);
-    Console.WriteLine("\tISBN : " + b.ISBN);
+   // Console.WriteLine("\tISBN : " + b.ISBN);
 }
 
 void PrintMenu()

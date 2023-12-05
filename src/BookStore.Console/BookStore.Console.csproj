@@ -10,6 +10,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\BookStore.Models\BookStore.Models.csproj" />
     <ProjectReference Include="..\..\BookStore.Services\BookStore.Services.csproj" />
+    <ProjectReference Include="..\BookStore.Models\BookStore.Models.csproj" />
+    <ProjectReference Include="..\BookStore.Services\BookStore.Services.csproj" />
   </ItemGroup>
 
 </Project>

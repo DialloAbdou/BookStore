@@ -71,28 +71,5 @@ public class BookService
     public IEnumerable<Book> List()
         => books.AsEnumerable();
 
-    public Book ReserverLivre(string isbn, string nomLecteur)
-    {
-        Book? book = null;
-        if (!books.Any(b => b.ISBN == isbn))
-        {
-            throw new InvalidOperationException("Ce Livre n'existe pas!");
-        }
-        else if (ReserveBooks.Any(b => b.ISBN == isbn))
-        {
-            throw new InvalidOperationException("Ce Livre a déjà été empreinté!");
-        }
-        else
-        {
-            book = books.FirstOrDefault(b=>b.ISBN == isbn);
-            if (book is not null)
-            {
-                ReserveBooks.Add(book);
-                lecteurs.Add(new Lecteur { Id=1,Nom=nomLecteur });
-            }
-        }
-        return book;
 
-
-    }
 }
