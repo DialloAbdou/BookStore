@@ -12,7 +12,7 @@ namespace BookStore.Services
         /// <returns></returns>
         public IEnumerable<Reservation> ListeReservations()
         {
-          throw new NotImplementedException();
+           return Enumerable.Empty<Reservation>();
         }
 
         public bool IsDisponible(Book book)
