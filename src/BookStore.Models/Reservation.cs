@@ -11,7 +11,7 @@ namespace BookStore.Models
         public Book Book { get; set; } = default!;
         public string Nom { get; set; } = string.Empty;
         public DateTime DateDebut { get; set; }
-        public DateTime DateFin { get; set; }
+        public DateTime? DateFin { get; set; }
 
     }
 }

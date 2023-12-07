@@ -52,20 +52,36 @@ namespace BooksStoreTestUnitaire.Services
         }
 
         [Fact]
-        public void ReserveBook_Should_False_When_Book_is_Not_isponible()
+        public void ReserveBook_Should_Does_Not_Anything_If_Book_Is_Already_reserved()
         {
             // Act
+            _reserveBookService.IsDisponible(seigneurDesAnneaux).Should().BeTrue();
             _reserveBookService.Reserver(seigneurDesAnneaux, "abdou");
-            var isdispo = _reserveBookService.IsDisponible(seigneurDesAnneaux);
-            isdispo.Should().BeFalse();
+            _reserveBookService.IsDisponible(seigneurDesAnneaux).Should().BeFalse();
+            _reserveBookService.Reserver(seigneurDesAnneaux, "abdou");
+
         }
 
         [Fact]
-        public void isDisponible_should_True_When_Book_isDisponible()
+        public void isDisponible_should_Return_True_when_the_book_isdisponible()
         {
             // Act
             var isdispo = _reserveBookService.IsDisponible(seigneurDesAnneaux);
             isdispo.Should().BeTrue();
         }
+
+        [Fact]
+        public void isDisponible_should_false_When_Book_isNotDisponible()
+        {
+            // Act
+             _reserveBookService.IsDisponible(seigneurDesAnneaux).Should().BeTrue();
+            _reserveBookService.Reserver(seigneurDesAnneaux, "abdou");
+            _reserveBookService.IsDisponible(seigneurDesAnneaux).Should().BeFalse(); ;
+
+        }
+
+
+
+
     }
 }
