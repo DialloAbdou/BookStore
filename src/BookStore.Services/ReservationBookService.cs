@@ -20,11 +20,12 @@ namespace BookStore.Services
 
         public bool IsDisponible(Book book)
         {
-            return reservations.All(r=>r.Book.ISBN != book.ISBN);
+            return !reservations.Any(r=>r.Book.ISBN == book.ISBN && r.DateFin  is  null);
         }
 
         public void Reserver(Book book, string name)
         {
+            if (!IsDisponible(book)) return;
             reservations.Add(new Reservation
             {
                 Book = book,
@@ -35,7 +36,15 @@ namespace BookStore.Services
 
         public void RetourReservation(Book book)
         {
-            throw new NotImplementedException();
+            if (!IsDisponible(book))
+            {
+                var bookReserve = reservations.FirstOrDefault(r => r.Book.ISBN == book.ISBN);
+                if(bookReserve is not null)
+                {
+                    bookReserve.DateFin = DateTime.Today;
+                }
+               
+            }
         }
     }
 }

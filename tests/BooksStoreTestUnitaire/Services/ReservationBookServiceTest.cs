@@ -59,6 +59,14 @@ namespace BooksStoreTestUnitaire.Services
             _reserveBookService.Reserver(seigneurDesAnneaux, "abdou");
             _reserveBookService.IsDisponible(seigneurDesAnneaux).Should().BeFalse();
             _reserveBookService.Reserver(seigneurDesAnneaux, "abdou");
+         
+            var reservations = _reserveBookService.ListeReservations();
+            reservations.Should().HaveCount(1); 
+            var reservation = reservations.First();
+            reservation.Book.Should().Be(seigneurDesAnneaux);
+            reservation.Nom.Should().Be("abdou");
+            reservation.DateFin.Should().NotHaveValue();
+
 
         }
 
@@ -81,7 +89,30 @@ namespace BooksStoreTestUnitaire.Services
         }
 
 
+        [Fact]
+        public void RetourBook_Make_Book_IsDisponible()
+        {
+           _reserveBookService.IsDisponible(seigneurDesAnneaux).Should().BeTrue();
+            _reserveBookService.Reserver(seigneurDesAnneaux, "abdou");
+            _reserveBookService.IsDisponible(seigneurDesAnneaux).Should().BeFalse();
+            _reserveBookService.RetourReservation(seigneurDesAnneaux);
+            _reserveBookService.IsDisponible(seigneurDesAnneaux).Should().BeTrue();
 
+
+        }
+
+
+        [Fact]
+        public void RetourBook_Should_Be_Not_Do_AnyThing_IF_Book_IS_NOT_Reserved()
+        {
+            _reserveBookService.IsDisponible(seigneurDesAnneaux).Should().BeTrue();
+            _reserveBookService.Reserver(seigneurDesAnneaux, "abdou");
+            _reserveBookService.IsDisponible(seigneurDesAnneaux).Should().BeFalse();
+            _reserveBookService.RetourReservation(seigneurDesAnneaux);
+            _reserveBookService.IsDisponible(seigneurDesAnneaux).Should().BeTrue();
+
+
+        }
 
     }
 }
